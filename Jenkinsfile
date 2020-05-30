@@ -28,7 +28,7 @@ pipeline {
              echo 'deploying the application'
             withCredentials([usernamePassword(credentials:'server_credentials', usernameVariable:USER, passwordVariable:PWD)])
             {
-                sh "${USER} ${PWD}"
+                bat "${USER} ${PWD}"
             }
            
         } 
