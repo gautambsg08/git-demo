@@ -4,6 +4,7 @@ pipeline {
     {
         
        NEW_VERSION = '1.3.0' 
+        SERVER_CREDENTIALS = credentials('server_credentials')
     }
     
     stages
@@ -26,10 +27,7 @@ pipeline {
       {
         steps{
              echo 'deploying the application'
-            withCredentials([usernamePassword(credentials:'server_credentials', usernameVariable:USER, passwordVariable:PWD)])
-            {
-                bat "${USER} ${PWD}"
-            }
+            bat "${SERVER_CREDENTIALS}"
            
         } 
            
