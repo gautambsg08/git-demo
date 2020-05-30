@@ -27,7 +27,7 @@ pipeline {
       {
         steps{
              echo 'deploying the application'
-            bat "${SERVER_CREDENTIALS}"
+            sh "${SERVER_CREDENTIALS}"
            
         } 
            
