@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment
     {
+        SERVER_CREDENTIALS = credentials('server-credentials')
        NEW_VERSION = '1.3.0' 
     }
     
@@ -25,6 +26,7 @@ pipeline {
       {
         steps{
             echo 'deploying the application'
+            echo "credential is ${SERVER_CREDENTIALS}"
         }
       }
       
