@@ -31,9 +31,10 @@ pipeline {
                 sh "${USER} ${PWD}"
             }
            
-            
+        } 
            
         }//stage('deploy)
       }//stages
+        
       
     }//pipeline
