@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment
     {
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        
        NEW_VERSION = '1.3.0' 
     }
     
@@ -25,11 +25,15 @@ pipeline {
       stage("deploy")
       {
         steps{
-            echo 'deploying the application'
-            echo "credential is ${SERVER_CREDENTIALS}"
-            sh "this is ${SERVER_CREDENTIALS}"
-        }
-      }
+             echo 'deploying the application'
+            withCredentials([usernamePassword(credentials:'server_credentials', usernameVariable:USER, passwordVariable:PWD)])
+            {
+                sh "${USER} ${PWD}"
+            }
+           
+            
+           
+        }//stage('deploy)
+      }//stages
       
-    }
-}
+    }//pipeline
